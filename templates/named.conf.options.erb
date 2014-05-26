@@ -37,6 +37,14 @@ options {
     };
 <% end -%>
 
+<% if @allow_transfer.size != 0 then -%>
+    allow-transfer {
+    <% @allow_transfer.each do |query| -%>
+	<%= query -%>;
+    <% end -%>
+    };
+<% end -%>
+
 <% if @check_names_master -%>
 check-names master <%= @check_names_master %>;
 <% end -%>

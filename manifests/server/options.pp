@@ -18,6 +18,7 @@
 define dns::server::options(
   $forwarders = [],
   $allow_recursion = [],
+  $allow_transfer = [],
   $check_names_master = undef,
   $check_names_slave = undef,
   $check_names_response = undef,
@@ -31,6 +32,7 @@ define dns::server::options(
 
   validate_array($forwarders)
   validate_array($allow_recursion)
+  validate_array($allow_transfer)
   if $check_names_master != undef and !member($valid_check_names, $check_names_master) {
     fail("The check name policy check_names_master must be ${valid_check_names}")
   }
